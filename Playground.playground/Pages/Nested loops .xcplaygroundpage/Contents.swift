@@ -1,6 +1,6 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
@@ -41,29 +41,82 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
-
+//canvas.translate(to: Point(x: canvas.width / 2, y: canvas.height / 2))
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+canvas.drawAxes(withScale: true, by: 50, color: .black)
 
 /*:
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
+
+
+
+
+
+// start here
+
+
 canvas.highPerformance = true
 
-// new gig poster for the talking heads
 
+
+// make second backround color
 canvas.fillColor = .black
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 
+for horizontalPosition in stride(from: 0, through: 400, by: 50) {
+    
+    
+    // Draw a circle, using the canvas object directly
+    
+    for verticalPosition in stride(from: 0, through: 400, by: 50)
+            
+    {
+        
+        if horizontalPosition == 0 ||
+            horizontalPosition == 400 ||
+            verticalPosition == 0 ||
+            verticalPosition == 400 ||
+      horizontalPosition + verticalPosition == 400 ||
+            horizontalPosition + verticalPosition == 450 ||
+            horizontalPosition + verticalPosition == 550 ||
+            horizontalPosition + verticalPosition == 600 ||
+            horizontalPosition + verticalPosition == 650 ||
+            horizontalPosition + verticalPosition == 700 ||
+            horizontalPosition + verticalPosition == 500{
+            
+            
+            canvas.fillColor = .green
+            } else {
+            canvas.fillColor = .white
+        }
+        canvas.drawEllipse(at: Point(x: horizontalPosition, y: verticalPosition), width: 47, height: 47)
+      
+                
+        
+
+
+
+    }
+}
+
+canvas.fillColor = .green
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200)
+
+canvas.fillColor = .black
+canvas.drawText(message: "pixies", at: Point(x: 0, y: 400 ))
+
+
 canvas.highPerformance = false
+
+
+
 /*:
  ## Show the Live View
  Don't see any results?
@@ -71,7 +124,7 @@ canvas.highPerformance = false
  Remember to show the Live View (1 then 2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  
@@ -79,3 +132,4 @@ canvas.highPerformance = false
  
  ![source_control](source-control.png "Source Control")
  */
+

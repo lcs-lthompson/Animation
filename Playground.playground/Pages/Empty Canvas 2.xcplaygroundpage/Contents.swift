@@ -46,45 +46,118 @@ canvas.translate(to: Point(x: canvas.width / 2,
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 20, color: .black)
-
-/*:
- ## Add your code
- 
- Beginning on line 61, you can add your own code.
-  
- [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
- */
-
 // Begin writing your code below (you can remove the examples shown)
+// create a pen
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
 
-// Go back to origin
-p.goToOrigin()
 
-// Change the pen color
-p.penColor = .red
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
 
-/*:
- ## Show the Live View
- Don't see any results?
- 
- Remember to show the Live View (1 then 2):
- 
- ![timeline](timeline.png "Timeline")
 
- ## Use source control
- To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source-control.png "Source Control")
- */
+
+print(p.currentHeading) // direction
+print(p.currentPosition()) //direction
+
+
+// starting/center shape
+
+
+p.goto(dx: 0, dy: 0)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+
+p.goto(dx: -40, dy: -60)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+p.turn(degrees: 45)
+p.addLine(distance: 28)
+p.turn(degrees: 45)
+p.addLine(distance: 20)
+
+
+// make triangle
+
+p.addLine(distance: 0)
+p.turn(degrees: 90)
+p.addLine(distance: -40)
+p.addLine(distance: 240)
+p.turn(degrees: 139)
+p.addLine(distance: 184)
+p.turn(degrees: 85)
+p.addLine(distance: 174)
+p.turn(degrees: 136)
+p.addLine(distance: 25)
+p.addLine(distance: -25)
+p.turn(degrees: -44)
+p.addLine(distance: 173)
+p.turn(degrees: 84.5)
+p.addLine(distance: 184)
+
+// add top triangle
+p.turn(degrees: 10)
+p.addLine(distance: 160)
+p.turn(degrees: -141)
+p.addLine(distance: 240)
+p.turn(degrees: -139)
+p.addLine(distance: 151)
+
+//add bottom triangle
+
+p.goto(dx: -3, dy: -266)
+p.turn(degrees: 91)
+p.turn(degrees: 10)
+p.addLine(distance: 160)
+p.turn(degrees: -141)
+p.addLine(distance: 240)
+p.turn(degrees: -139)
+p.addLine(distance: 151)
+
+//add left triangle
+
+p.goto(dx: -120, dy: 126)
+p.turn(degrees: 179.3)
+p.turn(degrees: 10)
+p.addLine(distance: 160)
+p.turn(degrees: -141)
+p.addLine(distance: 240)
+p.turn(degrees: -139)
+p.addLine(distance: 151)
+
+// right trangle
+
+p.goto(dx: 244, dy: 0)
+p.turn(degrees: -270)
+p.turn(degrees: 10)
+p.addLine(distance: 160)
+p.turn(degrees: -141)
+p.addLine(distance: 240)
+p.turn(degrees: -139)
+p.addLine(distance: 151)
+
