@@ -1,6 +1,6 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
@@ -42,7 +42,7 @@ PlaygroundPage.current.liveView = canvas
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
 //canvas.translate(to: Point(x: canvas.width / 2,
-                          // y: canvas.height / 2))
+// y: canvas.height / 2))
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 50, color: .black)
@@ -51,9 +51,9 @@ canvas.drawAxes(withScale: true, by: 50, color: .black)
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
 canvas.highPerformance = true
 
@@ -65,59 +65,71 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 //make the arrows
 
-    canvas.fillColor = .purple
+
+canvas.fillColor = .purple
 
 
-      
+
 
 for xPosition in stride(from: 0, to: 400, by: 80) {
     
     for yPosition in stride(from: 0, to: 400, by: 80)
             
     {
-
-var arrowVertices: [Point] = []
-  
-    arrowVertices.append(Point(x: xPosition + 0,
-                               y: yPosition + 0)) // A
-   
-    arrowVertices.append(Point(x: xPosition + 0,                                       y: yPosition + 70)) // B
+        
+        if yPosition + xPosition == 80 {
+            canvas.fillColor = .white
+        } else {
+            canvas.fillColor = .purple
+        }
+       
+       
+        var arrowVertices: [Point] = []
+        
+        
+        
+        
+        arrowVertices.append(Point(x: xPosition + 0,
+                                   y: yPosition + 0)) // A
+        
+        arrowVertices.append(Point(x: xPosition + 0,
+                                   y: yPosition + 70)) // B
+        
+        arrowVertices.append(Point(x: xPosition + 15,
+                                   y: yPosition + 70)) // C
+        
+        arrowVertices.append(Point(x: xPosition + 15,
+                                   y: yPosition + 25)) //D
+        
+        arrowVertices.append(Point(x: xPosition + 70,
+                                   y: yPosition + 80)) //E
+        
+        arrowVertices.append(Point(x: xPosition + 80,
+                                   y: yPosition + 70)) //F
+        
+        arrowVertices.append(Point(x: xPosition + 25,
+                                   y: yPosition + 15)) //G
+        
+        arrowVertices.append(Point(x: xPosition + 70,
+                                   y: yPosition + 15)) //H
+        
+        arrowVertices.append(Point(x: xPosition + 70,
+                                   y: yPosition + 0)) //I
+        
+        arrowVertices.append(Point(x: xPosition + 0,
+                                   y: yPosition + 0)) //K
+        
+        canvas.drawCustomShape (with: arrowVertices)
+    }
     
-    arrowVertices.append(Point(x: xPosition + 15,
-                               y: yPosition + 70)) // C
-   
-    arrowVertices.append(Point(x: xPosition + 15,
-                               y: yPosition + 25)) //D
-   
-    arrowVertices.append(Point(x: xPosition + 70,
-                               y: yPosition + 80)) //E
-    
-    arrowVertices.append(Point(x: xPosition + 80,
-                               y: yPosition + 70)) //F
-    
-    arrowVertices.append(Point(x: xPosition + 25,
-                               y: yPosition + 15)) //G
-    
-    arrowVertices.append(Point(x: xPosition + 70,
-                               y: yPosition + 15)) //H
-    
-    arrowVertices.append(Point(x: xPosition + 70,
-                               y: yPosition + 0)) //I
-    
-    arrowVertices.append(Point(x: xPosition + 0,
-                               y: yPosition + 0)) //K
-    
-    canvas.drawCustomShape (with: arrowVertices)
 }
-    
-}
 
 
 
-    
-    
 
-    // Show a grid
+
+
+// Show a grid
 canvas.drawAxes(withScale: true, by: 50, color: .white)
 
 
@@ -131,7 +143,7 @@ canvas.highPerformance = false
  Remember to show the Live View (1 then 2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  
