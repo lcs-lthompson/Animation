@@ -66,7 +66,7 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 //make the arrows
 
 
-canvas.fillColor = .purple
+
 
 
 
@@ -77,7 +77,7 @@ for xPosition in stride(from: 0, to: 400, by: 80) {
             
     {
         
-        if yPosition + xPosition == 80 {
+        if yPosition == xPosition {
             canvas.fillColor = .white
         } else {
             canvas.fillColor = .purple
@@ -125,7 +125,8 @@ for xPosition in stride(from: 0, to: 400, by: 80) {
 }
 
 
-
+canvas.fillColor = .blue
+canvas.drawText(message: "HELLO", at: Point(x: 20, y: 500 ))
 
 
 

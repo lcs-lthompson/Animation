@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -41,8 +41,8 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+//canvas.translate(to: Point(x: canvas.width / 2,
+                      //     y: canvas.height / 2))
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 20, color: .black)
@@ -57,21 +57,66 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  */
 
 // Begin writing your code below (you can remove the examples shown)
+canvas.highPerformance = true
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+// make the rectangle
+canvas.fillColor = .black
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+//make the custom shape
+for xPosition in stride(from: 0, to: 400, by: 80) {
+    
+    for yPosition in stride(from: 0, to: 400, by: 80)
+            
+    {
+var arrowVertices: [Point] = []
+   //A
+        
+        arrowVertices.append(Point(x: xPosition + 0,
+                                   y: yPosition + 0)) // A
+        
+        arrowVertices.append(Point(x: xPosition + 0,
+                                   y: yPosition + 70)) // B
+        
+        arrowVertices.append(Point(x: xPosition + 15,
+                                   y: yPosition + 70)) // C
+        
+        arrowVertices.append(Point(x: xPosition + 15,
+                                   y: yPosition + 25)) //D
+        
+        arrowVertices.append(Point(x: xPosition + 70,
+                                   y: yPosition + 80)) //E
+        
+        arrowVertices.append(Point(x: xPosition + 80,
+                                   y: yPosition + 70)) //F
+        
+        arrowVertices.append(Point(x: xPosition + 25,
+                                   y: yPosition + 15)) //G
+        
+        arrowVertices.append(Point(x: xPosition + 70,
+                                   y: yPosition + 15)) //H
+        
+        arrowVertices.append(Point(x: xPosition + 70,
+                                   y: yPosition + 0)) //I
+        
+        arrowVertices.append(Point(x: xPosition + 0,
+                                   y: yPosition + 0)) //K
+        
+        canvas.drawCustomShape (with: arrowVertices)
+    }
+    
+}
 
-// Go back to origin
-p.goToOrigin()
 
-// Change the pen color
-p.penColor = .red
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+
+
+
+
+// Show a grid
+canvas.drawAxes(withScale: true, by: 50, color: .white)
+
+canvas.highPerformance = false
 
 /*:
  ## Show the Live View
