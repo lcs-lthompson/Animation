@@ -1,10 +1,10 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -41,37 +41,103 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+//canvas.translate(to: Point(x: canvas.width / 2,
+//     y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+canvas.drawAxes(withScale: true, by: 50, color: .black)
 
 /*:
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
 
 // Begin writing your code below (you can remove the examples shown)
+canvas.highPerformance = true
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+// make the rectangle
+canvas.fillColor = .black
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+//make the custom shape
+for xPosition in stride(from: 0, to: 150, by: 50) {
+    
+    for yPosition in stride(from: 0, to: 160, by: 50)
+            
+    {
+        var AarchVertices: [Point] = []
+        //A
+        
+        AarchVertices.append(Point(
+            x: xPosition + 60,
+            y: yPosition + 0))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 60,
+            y: yPosition + 200))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 0,
+            y: yPosition + 200))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 0,
+            y: yPosition + 220))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 80,
+            y: yPosition + 220))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 80,
+            y: yPosition + 0))
+        
+        canvas.fillColor = .yellow
+        canvas.drawCustomShape(with:AarchVertices)
+        
+    }
+    
+}
 
-// Go back to origin
-p.goToOrigin()
 
-// Change the pen color
-p.penColor = .red
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+
+
+
+
+
+
+for xPosition in stride(from: 223,
+                        through: 400, by: 50){
+    
+    for yPosition in stride(from:
+                                0, to:400, by: 50)
+    {
+        
+        
+        
+        canvas.fillColor = .yellow
+        canvas.drawEllipse(at: Point(x: xPosition, y: yPosition),
+                           width: 50,
+                           height: 50)
+        
+        canvas.fillColor = .black
+        canvas.drawRectangle(at: Point(x: 248, y: 50), width: 100, height: 250)
+        
+    }
+    
+}
+
+
+
+// Show a grid
+canvas.drawAxes(withScale: true, by: 50, color: .white)
+
+canvas.highPerformance = false
 
 /*:
  ## Show the Live View
@@ -80,7 +146,7 @@ p.addArc(radius: 50, angle: -45)
  Remember to show the Live View (1 then 2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  

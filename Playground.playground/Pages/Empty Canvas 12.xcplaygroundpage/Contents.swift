@@ -1,6 +1,6 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
@@ -42,18 +42,18 @@ PlaygroundPage.current.liveView = canvas
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
 //canvas.translate(to: Point(x: canvas.width / 2,
-                      //     y: canvas.height / 2))
+//     y: canvas.height / 2))
 
 // Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+canvas.drawAxes(withScale: true, by: 50, color: .black)
 
 /*:
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
 
 // Begin writing your code below (you can remove the examples shown)
@@ -64,45 +64,41 @@ canvas.fillColor = .black
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 //make the custom shape
-for xPosition in stride(from: 0, to: 400, by: 80) {
+for xPosition in stride(from: 0, to: 150, by: 50) {
     
-    for yPosition in stride(from: 0, to: 400, by: 80)
+    for yPosition in stride(from: 0, to: 160, by: 50)
             
     {
-var arrowVertices: [Point] = []
-   //A
+        var AarchVertices: [Point] = []
+        //A
         
-        arrowVertices.append(Point(x: xPosition + 0,
-                                   y: yPosition + 0)) // A
+        AarchVertices.append(Point(
+            x: xPosition + 60,
+            y: yPosition + 0))
         
-        arrowVertices.append(Point(x: xPosition + 0,
-                                   y: yPosition + 70)) // B
+        AarchVertices.append(Point(
+            x: xPosition + 60,
+            y: yPosition + 200))
         
-        arrowVertices.append(Point(x: xPosition + 15,
-                                   y: yPosition + 70)) // C
+        AarchVertices.append(Point(
+            x: xPosition + 0,
+            y: yPosition + 200))
         
-        arrowVertices.append(Point(x: xPosition + 15,
-                                   y: yPosition + 25)) //D
+        AarchVertices.append(Point(
+            x: xPosition + 0,
+            y: yPosition + 220))
         
-        arrowVertices.append(Point(x: xPosition + 70,
-                                   y: yPosition + 80)) //E
+        AarchVertices.append(Point(
+            x: xPosition + 80,
+            y: yPosition + 220))
         
-        arrowVertices.append(Point(x: xPosition + 80,
-                                   y: yPosition + 70)) //F
+        AarchVertices.append(Point(
+            x: xPosition + 80,
+            y: yPosition + 0))
         
-        arrowVertices.append(Point(x: xPosition + 25,
-                                   y: yPosition + 15)) //G
+        canvas.fillColor = .yellow
+        canvas.drawCustomShape(with:AarchVertices)
         
-        arrowVertices.append(Point(x: xPosition + 70,
-                                   y: yPosition + 15)) //H
-        
-        arrowVertices.append(Point(x: xPosition + 70,
-                                   y: yPosition + 0)) //I
-        
-        arrowVertices.append(Point(x: xPosition + 0,
-                                   y: yPosition + 0)) //K
-        
-        canvas.drawCustomShape (with: arrowVertices)
     }
     
 }
@@ -110,6 +106,31 @@ var arrowVertices: [Point] = []
 
 
 
+
+
+
+
+
+for xPosition in stride(from: 223,
+                        through: 400, by: 50){
+    
+    for yPosition in stride(from:
+                                0, to:400, by: 50)
+    {
+        
+        
+        
+        canvas.fillColor = .yellow
+        canvas.drawEllipse(at: Point(x: xPosition, y: yPosition),
+                           width: 50,
+                           height: 50)
+        
+        canvas.fillColor = .black
+        canvas.drawRectangle(at: Point(x: 248, y: 50), width: 100, height: 250)
+        
+    }
+    
+}
 
 
 
@@ -125,7 +146,7 @@ canvas.highPerformance = false
  Remember to show the Live View (1 then 2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  
