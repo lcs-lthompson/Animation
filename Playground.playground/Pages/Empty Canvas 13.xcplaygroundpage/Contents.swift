@@ -63,6 +63,12 @@ canvas.highPerformance = true
 canvas.fillColor = .black
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
+//second top half rectangle
+
+canvas.fillColor = .orange
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 600)
+
+
 //make the custom shape
 for xPosition in stride(from: 0, to: 150, by: 50) {
     
@@ -126,12 +132,67 @@ for xPosition in stride(from: 223,
                            height: 50)
         
         canvas.fillColor = .black
-        canvas.drawRectangle(at: Point(x: 248, y: 50), width: 100, height: 250)
+        canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 200)
         
     }
     
 }
 
+// creat bottom half costum shape
+
+for xPosition in stride(from: 0, to: 150, by: 50) {
+    
+    for yPosition in stride(from: 0, to: 160, by: 50)
+            
+    {
+        var AarchVertices: [Point] = []
+        //A
+        
+        AarchVertices.append(Point(
+            x: xPosition + 0,
+            y: yPosition + 0))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 0,
+            y: yPosition + 25))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 400,
+            y: yPosition + 25))
+        
+        AarchVertices.append(Point(
+            x: xPosition + 400,
+            y: yPosition + 0))
+        
+        canvas.fillColor = .orange
+        canvas.drawCustomShape(with:AarchVertices)
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+//letters
+canvas.fillColor = .black
+canvas.drawText(message: "The Rolling Stones", at: Point(x: 25, y: 500 ))
+
+canvas.fillColor = .black
+canvas.drawText(message: "TIME: 9:00", at: Point(x: 25, y: 450 ))
+
+canvas.fillColor = .black
+canvas.drawText(message: "DAY: 1998 Saturday August 22", at: Point(x: 25, y: 400 ))
+
+canvas.fillColor = .black
+canvas.drawText(message: "TICKET: 37.50 each", at: Point(x: 170, y: 450 ))
 
 
 // Show a grid
@@ -154,3 +215,4 @@ canvas.highPerformance = false
  
  ![source_control](source-control.png "Source Control")
  */
+
